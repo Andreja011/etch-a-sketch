@@ -37,7 +37,6 @@ a {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
-  gap: 1rem;
   width: 50rem;
   height: 50rem;
   margin: 0 auto;
@@ -46,5 +45,5 @@ a {
 .grid-element {
   aspect-ratio: 1;
   background-color: red;
-  border: 3px solid black;
+  border: 1px solid black;
 }
