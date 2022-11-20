@@ -50,9 +50,10 @@ a {
 .grid-element {
   aspect-ratio: 1;
   border: 1px solid black;
+  background-color: white;
 }
 
 .grid-element-hover-effect {
-  background-color: yellow;
+  background-color: var(--background-color);
   transition: all 2s ease;
 }
