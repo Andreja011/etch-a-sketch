@@ -8,6 +8,7 @@ const grid = document.createElement("div");
 grid.classList.add("grid");
 container.appendChild(grid);
 
+// Generating random color
 const randomColor = function () {
   const color = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
   return color;
