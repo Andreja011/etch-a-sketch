@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700;900&display=swap");
+
+:root {
+  --background-color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -44,6 +49,10 @@ a {
 
 .grid-element {
   aspect-ratio: 1;
-  background-color: red;
   border: 1px solid black;
+}
+
+.grid-element-hover-effect {
+  background-color: yellow;
+  transition: all 2s ease;
 }
