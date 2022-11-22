@@ -55,3 +55,5 @@ button.addEventListener("click", () => {
   };
   userNumber();
 });
+
+// Add user input values to the for loop
