@@ -2,6 +2,7 @@
 
 const container = document.querySelector(".container");
 const header = document.querySelector(".header-one");
+const customGrid = [];
 
 // Creating Grid
 const grid = document.createElement("div");
@@ -47,7 +48,7 @@ button.addEventListener("click", () => {
   const userNumber = function () {
     const userChoise = Number(prompt("Choose a number from 1 to 100."));
     if (userChoise <= 100) {
-      console.log(userChoise);
+      customGrid.push(userChoise);
       return userChoise;
     } else {
       userNumber();
