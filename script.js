@@ -75,4 +75,4 @@ button.addEventListener("click", () => {
   userNumber();
 });
 
-// Add user input values to the for loop
+// TODO: popraviti da kreira grid na mestu prethodnog a ne da dodaje ispod
