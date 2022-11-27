@@ -2,41 +2,55 @@
 
 const container = document.querySelector(".container");
 const header = document.querySelector(".header-one");
-const customGrid = [];
+const button = addButton();
+const defaultGrid = createGrid(16);
 
-// Creating Grid
-const grid = document.createElement("div");
-grid.classList.add("grid");
-container.appendChild(grid);
+// Creating default grid
+function createGrid(number) {
+  const grid = document.createElement("div");
+  grid.classList.add("grid");
+  grid.style.setProperty("--number-rows-and-columns", number);
+  container.insertBefore(grid, button);
+  return grid;
+}
 
 // Generating random color
 const randomColor = function () {
   const color = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
   return color;
 };
-// Creating grid elements
-const fragment = document.createDocumentFragment();
-for (let i = 0; i < 256; i++) {
-  const gridElement = document.createElement("div");
-  gridElement.classList.add("grid-element");
 
-  // Adding hover effect and random color
-  document.documentElement.style.setProperty(
-    "--background-color",
-    randomColor()
-  );
-  gridElement.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = randomColor();
-  });
-  fragment.appendChild(gridElement);
+// Creating grid elements
+const fragment = creatingElements(256);
+
+function creatingElements(number) {
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < number; i++) {
+    const gridElement = document.createElement("div");
+    gridElement.classList.add("grid-element");
+
+    // Adding hover effect and random color
+    document.documentElement.style.setProperty(
+      "--background-color",
+      randomColor()
+    );
+    gridElement.addEventListener("mouseover", (event) => {
+      event.target.style.backgroundColor = randomColor();
+    });
+    fragment.appendChild(gridElement);
+  }
+  return fragment;
 }
-grid.appendChild(fragment);
+defaultGrid.appendChild(fragment);
 
 // Adding prompt button
-const button = document.createElement("button");
-button.textContent = "Size";
-button.classList.add("button-prompt");
-container.appendChild(button);
+function addButton() {
+  const button = document.createElement("button");
+  button.textContent = "Size";
+  button.classList.add("button-prompt");
+  container.appendChild(button);
+  return button;
+}
 
 // Adding random color on button for fun :P
 button.addEventListener("mouseover", (event) => {
@@ -48,8 +62,12 @@ button.addEventListener("click", () => {
   const userNumber = function () {
     const userChoise = Number(prompt("Choose a number from 1 to 100."));
     if (userChoise <= 100) {
-      customGrid.push(userChoise);
-      return userChoise;
+      console.log(userChoise);
+      defaultGrid.remove();
+      let userGrid = createGrid(userChoise);
+      const userFragment = creatingElements(userChoise * userChoise);
+
+      userGrid.appendChild(userFragment);
     } else {
       userNumber();
     }
