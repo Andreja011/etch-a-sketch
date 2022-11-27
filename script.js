@@ -61,12 +61,13 @@ button.addEventListener("mouseover", (event) => {
 button.addEventListener("click", () => {
   const userNumber = function () {
     const userChoise = Number(prompt("Choose a number from 1 to 100."));
+    let userGrid;
     if (userChoise <= 100) {
-      console.log(userChoise);
       defaultGrid.remove();
-      let userGrid = createGrid(userChoise);
+      // let grid = document.querySelector(".grid");
+      container.removeChild(container.children[1]);
+      userGrid = createGrid(userChoise);
       const userFragment = creatingElements(userChoise * userChoise);
-
       userGrid.appendChild(userFragment);
     } else {
       userNumber();
@@ -74,5 +75,3 @@ button.addEventListener("click", () => {
   };
   userNumber();
 });
-
-// TODO: popraviti da kreira grid na mestu prethodnog a ne da dodaje ispod
